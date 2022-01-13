@@ -1698,24 +1698,6 @@ class PlayState extends MusicBeatState
 				screenShake = false;
 			});
 		}
-
-		function teleportShit() 
-		{
-			dad.flipX = true;
-			boyfriend.flipX = true;
-			dad.x += 190;
-			boyfriend.x -= 200;
-			for (i in 0...PlayState.strumLineNotes.length) {
-				var member = PlayState.strumLineNotes.members[i];
-				var theValue = Note.swagWidth * (i % 4);
-				if (i >= 4) {
-					luaModchart.setVar("defaultStrum" + i + "X", 50 + theValue);
-					FlxTween.tween(member, {x: 50 + theValue}, 1, {ease: FlxEase.linear});
-				} else {
-					luaModchart.setVar("defaultStrum" + i + "X", (50 + (FlxG.width / 2)) + theValue);
-					FlxTween.tween(member, {x: (50 + (FlxG.width / 2)) + theValue}, 1, {ease: FlxEase.linear});
-				}
-			}
 			curStage = 'unknownfile-alt';
 			/*for (spr in playerStrums) {
 				spr.x -= (FlxG.width / 2);
@@ -1731,24 +1713,6 @@ class PlayState extends MusicBeatState
 					
 				});*/
 		}
-		function teleportBack()
-		{
-			dad.flipX = false;
-			boyfriend.flipX = false;
-			dad.x -= 190;
-			boyfriend.x += 200;
-			curStage = 'unknownfile';
-			for (i in 0...PlayState.strumLineNotes.length) {
-				var member = PlayState.strumLineNotes.members[i];
-				var theValue = Note.swagWidth * (i % 4);
-				if (i <= 3) {
-					luaModchart.setVar("defaultStrum" + i + "X", 50 + theValue);
-					FlxTween.tween(member, {x: 50 + theValue}, 1, {ease: FlxEase.linear});
-				} else {
-					luaModchart.setVar("defaultStrum" + i + "X", (50 + (FlxG.width / 2)) + theValue);
-					FlxTween.tween(member, {x: (50 + (FlxG.width / 2)) + theValue}, 1, {ease: FlxEase.linear});
-				}
-			}
 		}
 
 	private function generateSong(dataPath:String):Void
