@@ -1697,7 +1697,6 @@ class PlayState extends MusicBeatState
 				remove(jump);
 				screenShake = false;
 			});
-		}
 			curStage = 'unknownfile-alt';
 			/*for (spr in playerStrums) {
 				spr.x -= (FlxG.width / 2);
